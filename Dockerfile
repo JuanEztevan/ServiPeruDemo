@@ -7,7 +7,7 @@ WORKDIR /app
 # Copia el archivo .jar generado por Maven
 COPY target/ServiPeru-0.0.1-SNAPSHOT.jar app.jar
 
-# Expone el puerto (Render usará la variable de entorno PORT)
+# Expone el puerto que Render necesita (usando PORT)
 EXPOSE 10000
 
 # Ejecuta el archivo .jar
