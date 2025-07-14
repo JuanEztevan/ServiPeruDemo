@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: servi-peru
+    env: docker
+    region: oregon
+    plan: free
+    branch: main
+    repo: https://github.com/JuanEztevan/ServiPeruDemo
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: 10000
