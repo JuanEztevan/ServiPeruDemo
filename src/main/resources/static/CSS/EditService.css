@@ -1,0 +1,264 @@
+/* ------------------ ESTILOS BASE (iguales a Inicio.css, no se modifica) ------------------ */
+body, html {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #f4f6f8;
+}
+
+.content {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #243A8C;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.sidebar-logo img {
+    max-width: 150px;
+    height: auto;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.nav-item {
+    margin-bottom: 18px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+    min-width: 22px;
+    text-align: center;
+}
+
+.nav-link span {
+    flex: 1;
+    text-align: left;
+}
+
+.nav-link:hover {
+    background-color: #1f2f6b;
+    color: #EFC54A;
+}
+
+.logout {
+    margin-top: auto;
+    padding-top: 25px;
+}
+
+.logout .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.logout .nav-link:hover {
+    background-color: #EFC54A;
+    color: #000;
+}
+
+/* ------------------ FORMULARIO EDITAR SERVICIO ------------------ */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.material-form {
+    width: 100%;
+    max-width: 1000px;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Breadcrumb + botón volver */
+.form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.breadcrumb-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.breadcrumb-text .path-gray {
+    color: #888;
+}
+
+.breadcrumb-text .path-bold {
+    color: #000;
+    font-weight: 500;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #243A8C;
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.back-button i {
+    margin-right: 6px;
+}
+
+.back-button:hover {
+    background-color: #1f2f6b;
+    color: #EFC54A;
+}
+
+/* Título */
+h3.form-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: #243A8C;
+}
+
+/* Estructura de columnas */
+.form-row {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.form-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    background-color: #fff;
+    appearance: auto;
+}
+
+/* Estilo al enfocar */
+input:focus,
+select:focus {
+    border-color: #ef8134;
+    outline: none;
+}
+
+/* Select con ícono */
+.supervisor-select {
+    position: relative;
+}
+
+.supervisor-select i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    font-size: 1rem;
+}
+
+.supervisor-select select {
+    padding-left: 34px;
+}
+
+/* Botón de envío */
+.form-group .submit-button {
+    background-color: #EFC54A;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 600;
+    font-size: 1rem;
+    display: inline-block;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.form-group .submit-button:hover {
+    background-color: #d6ac3b;
+}
+
+/* Scroll personalizado */
+.main-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+/* Nuevos estilos para mostrar el stock disponible debajo del campo de cantidad */
+#stockInfo {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 4px;
+    display: block;
+}

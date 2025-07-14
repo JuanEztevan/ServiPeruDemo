@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Empleados - Servi Perú</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/CSS/Images/logo-icon.png" />
+
+    <!-- Fuente Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- Flaticon icons (para cerrar sesión) -->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="/CSS/Empleados.css" />
+</head>
+<body>
+<div class="content">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="sidebar-logo">
+            <img src="/CSS/Images/logo-extendido.png" alt="Logo Servi Perú" />
+        </div>
+
+        <!-- Menú -->
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="Servicios">
+                    <i class="fa-solid fa-concierge-bell"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Materiales">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Materiales</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empleados">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Empleados</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empresas">
+                    <i class="fa-solid fa-building"></i>
+                    <span>Empresas</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Cerrar sesión -->
+        <div class="logout">
+            <a class="nav-link" href="Login">
+                <i class="fi fi-rr-sign-out-alt"></i>
+                <span>Cerrar sesión</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Encabezado -->
+        <div class="row" style="display: flex; justify-content: space-between; align-items: center;">
+            <h4>Lista de empleados</h4>
+            <form class="form" method="POST" th:action="@{/NewOp}">
+                <button type="submit">Agregar Operario</button>
+            </form>
+        </div>
+
+        <!-- Tabla de empleados -->
+        <div class="TablaOperarios">
+            <table id="miTabla" class="table">
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DNI</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="empresa : ${listado}">
+                    <td th:text="${empresa.Codigo}"></td>
+                    <td th:text="${empresa.Nombre}"></td>
+                    <td th:text="${empresa.Apellido}"></td>
+                    <td th:text="${empresa.DNI}"></td>
+                    <td th:text="${empresa.Telefono}"></td>
+                    <td th:text="${empresa.Correo}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#miTabla').DataTable({
+            language: {
+                paginate: {
+                    previous: '<i class="fas fa-chevron-left"></i>',
+                    next: '<i class="fas fa-chevron-right"></i>'
+                },
+                lengthMenu: "Mostrar _MENU_ registros por página",
+                zeroRecords: "No se encontraron resultados",
+                info: "Mostrando página _PAGE_ de _PAGES_",
+                infoEmpty: "No hay registros disponibles",
+                infoFiltered: "(filtrado de _MAX_ registros totales)",
+                search: "Buscar:"
+            }
+        });
+    });
+</script>
+</body>
+</html>

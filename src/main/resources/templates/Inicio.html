@@ -1,0 +1,242 @@
+<!--<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servi Peru</title>
+
+    <-- Incluye tu favicon -->
+<!--
+    <link rel="icon" type="image/x-icon" href="/CSS/Images/Logo.png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="/CSS/Inicio.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="content">
+    <div class="sidebar">
+        <div class="user-icon" id="userIcon">
+            <i class="fa-regular fa-user-circle fa-2x" style="color: #000000;"></i>
+            <div class="user-menu" id="userMenu">
+                <a href="Login" class="btn btn-secondary"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
+            </div>
+        </div>
+        <ul class="nav flex-column">
+
+            <li class="nav-item">
+                <a class="nav-link" href="Servicios">
+                    <i class="fa-solid fa-concierge-bell"></i> <-- Icono de servicios -->
+<!--
+                    Servicios
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Materiales">
+                    <i class="fa-solid fa-box-open"></i> <-- Icono de materiales -->
+<!--
+                    Materiales
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empleados">
+                    <i class="fa-solid fa-users"></i> <-- Icono de empleados -->
+<!--
+                    Empleados
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empresas">
+                    <i class="fa-solid fa-building"></i> <-- Icono de empresas -->
+<!--
+                    Empresas
+                </a>
+            </li>
+        </ul>
+        <--
+        <-- Icono al final de la navegación -->
+<!--
+        <div class="bottom-icon">
+            <a href="inicio">
+                <img src="/CSS/Images/LogoB.png" alt="Logo" width="50" height="50">
+            </a>
+        </div>
+        </div>
+        <--
+    <-- <div class="main-content">
+        //  <iframe title="base de datos Algoritmo" class="iframe-dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiOGU2ZTY3OTEtN2UxYy00ZGVjLWFlZmMtZDU3ZDJkNGQxMjI5IiwidCI6ImM0YTY2YzM0LTJiYjctNDUxZi04YmUxLWIyYzI2YTQzMDE1OCIsImMiOjR9" frameborder="0" allowFullScreen="true"></iframe>
+    </div>-->
+<!--
+    </div>
+    <script>
+        // Script para manejar la visibilidad del menú desplegable
+        document.getElementById('userIcon').addEventListener('click', function() {
+            var menu = document.getElementById('userMenu');
+            menu.classList.toggle('show');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    </body>
+    </html>
+-->
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servi Perú - Inicio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/CSS/Images/logo-icon.png" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Flaticon -->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <link href="/CSS/Inicio.css" rel="stylesheet">
+
+    <style>
+        .bienvenida-box {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .bienvenida-box h2 {
+            color: #243A8C;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bienvenida-box p {
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .carousel-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 2.5rem;
+        }
+
+        .carousel-inner img {
+            height: 320px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+<div class="content">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/CSS/Images/logo-extendido.png" alt="Logo Servi Perú" />
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="Servicios"><i class="fa-solid fa-concierge-bell"></i><span>Servicios</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="Materiales"><i class="fa-solid fa-box-open"></i><span>Materiales</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="Empleados"><i class="fa-solid fa-users"></i><span>Empleados</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="Empresas"><i class="fa-solid fa-building"></i><span>Empresas</span></a></li>
+        </ul>
+        <div class="logout">
+            <a class="nav-link" href="Login"><i class="fi fi-rr-sign-out-alt"></i><span>Cerrar sesión</span></a>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Bienvenida -->
+        <div class="bienvenida-box">
+            <h2><i class="fa-solid fa-house"></i> ¡Bienvenido/a al sistema de ServiPerú!</h2>
+            <p>Este es tu panel principal de gestión interna.<br>
+                Utiliza el menú lateral izquierdo para acceder a las secciones disponibles del sistema.</p>
+        </div>
+
+        <!-- Carrusel -->
+        <!-- Carrusel separado visualmente -->
+        <div class="contenedor-carrusel">
+            <div id="carruselInicio" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <img src="/CSS/Images/imagen0.jpg" class="d-block w-100" alt="Imagen 1">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Inventario de productos</h5>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="/CSS/Images/imagen1.jpg" class="d-block w-100" alt="Imagen 2">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Transporte eficiente de carga</h5>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="/CSS/Images/imagen3.jpg" class="d-block w-100" alt="Imagen 3">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5>Proceso de trasiego</h5>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controles del carrusel -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carruselInicio" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carruselInicio" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tabla de servicios recientes -->
+        <div class="tabla-servicios">
+            <h4>Últimos servicios registrados</h4>
+            <table>
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Tipo</th>
+                    <th>Empresa</th>
+                    <th>Fecha</th>
+                    <th>Lugar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="empresa : ${servicios}">
+                    <td th:text="${empresa.Codigo}"></td>
+                    <td th:text="${empresa.TipoServicio}"></td>
+                    <td th:text="${empresa.CodigoEmpresa}"></td>
+                    <td th:text="${empresa.FechaDeRealizacion}"></td>
+                    <td th:text="${empresa.LugarDeRealizacion}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

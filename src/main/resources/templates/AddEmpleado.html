@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Empleado - ServiPerú</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/CSS/Images/logo-icon.png" />
+
+    <!-- Fuente Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Iconos Flaticon -->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <link href="/CSS/NewEmpleado.css" rel="stylesheet">
+</head>
+<body>
+<div class="content">
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/CSS/Images/logo-extendido.png" alt="Logo Servi Perú" />
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="Servicios">
+                    <i class="fa-solid fa-concierge-bell"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Materiales">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Materiales</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empleados">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Empleados</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empresas">
+                    <i class="fa-solid fa-building"></i>
+                    <span>Empresas</span>
+                </a>
+            </li>
+        </ul>
+        <div class="logout">
+            <a class="nav-link" href="Login">
+                <i class="fi fi-rr-sign-out-alt"></i>
+                <span>Cerrar sesión</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="empleado-form">
+            <!-- Encabezado tipo breadcrumb + botón volver -->
+            <div class="form-header">
+                <div class="breadcrumb-text">
+                    <span class="path-gray">Empleados / </span><span class="path-bold">Agregar empleado</span>
+                </div>
+                <a href="Empleados" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+            </div>
+
+            <!-- Título centrado -->
+            <h3 class="form-title">Agregar Empleado</h3>
+
+            <!-- Formulario dividido en dos columnas -->
+            <form action="/guardar-Empleado" method="post">
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="NombreOp">Nombre:</label>
+                            <input type="text" id="NombreOp" name="NombreOp" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Apellido">Apellido:</label>
+                            <input type="text" id="Apellido" name="Apellido" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="DNI">DNI:</label>
+                            <input type="text" id="DNI" name="DNI" class="form-control" required maxlength="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="Telefono">Teléfono:</label>
+                            <input type="text" id="Telefono" name="Telefono" class="form-control" required maxlength="8">
+                        </div>
+                    </div>
+
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="Correo">Correo:</label>
+                            <input type="email" id="Correo" name="Correo" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Cargo">Empresa:</label>
+                            <select id="Cargo" name="Cargo" class="form-control" required>
+                                <option value="Empleados">Empleados</option>
+                                <option value="Administracion">Administración</option>
+                                <option value="Dueño">Gerente general</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Usuario">Usuario:</label>
+                            <input type="text" id="Usuario" name="Usuario" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Contraseña">Contraseña:</label>
+                            <input type="password" id="Contraseña" name="Contraseña" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <button type="submit" class="btn btn-primary">Agregar Operario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('userIcon')?.addEventListener('click', function() {
+        var menu = document.getElementById('userMenu');
+        menu?.classList.toggle('show');
+    });
+</script>
+</body>
+</html>

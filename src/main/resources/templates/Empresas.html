@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servi Perú</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/CSS/Images/logo-icon.png" />
+
+    <!-- Fuente Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Iconos Flaticon -->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link href="/CSS/Empresas.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
+<body>
+<div class="content">
+    <div class="sidebar">
+        <!-- Logo -->
+        <div class="sidebar-logo">
+            <img src="/CSS/Images/logo-extendido.png" alt="Logo Servi Perú" />
+        </div>
+
+        <!-- Navegación -->
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="Servicios">
+                    <i class="fa-solid fa-concierge-bell"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Materiales">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Materiales</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empleados">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Empleados</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empresas">
+                    <i class="fa-solid fa-building"></i>
+                    <span>Empresas</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Cerrar sesión -->
+        <div class="logout">
+            <a class="nav-link" href="Login">
+                <i class="fi fi-rr-sign-out-alt"></i>
+                <span>Cerrar sesión</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="row">
+            <div class="col-3">
+                <h4>Lista de empresas</h4>
+            </div>
+            <div class="col-6">
+                <!-- Espacio vacío opcional -->
+            </div>
+            <div class="col-3">
+                <form class="form" method="POST" th:action="@{/NewEmpre}">
+                    <div class="inputs">
+                        <button type="submit">Agregar Empresa</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="TablaEmpresas">
+            <table id="miTabla" class="table">
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Ciudad</th>
+                    <th>Código Postal</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="empresa : ${listado}">
+                    <td th:text="${empresa.codigo}"></td>
+                    <td th:text="${empresa.nombre}"></td>
+                    <td th:text="${empresa.direccion}"></td>
+                    <td th:text="${empresa.ciudad}"></td>
+                    <td th:text="${empresa.codPostal}"></td>
+                    <td th:text="${empresa.telefono}"></td>
+                    <td th:text="${empresa.correo}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#miTabla').DataTable({
+            language: {
+                decimal: "",
+                emptyTable: "No hay datos disponibles en la tabla",
+                info: "Mostrando _START_ a _END_ de _TOTAL_ empresas",
+                infoEmpty: "Mostrando 0 a 0 de 0 empresas",
+                infoFiltered: "(filtrado de _MAX_ empresas en total)",
+                lengthMenu: "Mostrar _MENU_ empresas por página",
+                loadingRecords: "Cargando...",
+                processing: "Procesando...",
+                search: "",
+                zeroRecords: "No se encontraron coincidencias",
+                paginate: {
+                    first: "Primero",
+                    last: "Último",
+                    next: "<i class='fas fa-chevron-right'></i>",
+                    previous: "<i class='fas fa-chevron-left'></i>"
+                },
+                aria: {
+                    sortAscending: ": activar para ordenar ascendente",
+                    sortDescending: ": activar para ordenar descendente"
+                }
+            },
+            pageLength: 8,
+            initComplete: function () {
+                $('#miTabla_filter input[type=search]')
+                    .attr('placeholder', 'Buscar empresa...')
+                    .css({
+                        'font-size': '0.95rem',
+                        'padding': '6px 10px',
+                        'border-radius': '6px'
+                    });
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+/*
+body{
+    background-image: url(Images/Background.png);
+    background-size:cover;
+    min-height: 98vh;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form{
+    padding: 25px 80px;
+    width: 300px;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+}
+.box{
+    outline: none;
+    border-color: #EFC54A;
+    border-width: 0px 0px 0px 5px;
+    border-style: solid;
+    padding: 15px 35px;
+    margin-bottom: 20px;
+ 
+}
+a{
+    color: #EFC54A;
+    text-decoration: none;
+    font-size: 15px;
+    margin-bottom: 35px;
+}
+
+button{
+    padding: 15px;
+    border-radius: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 0;
+    color: #EFC54A;
+  
+}
+
+h2{
+    font-size: 2rem;
+    font-family:sans-serif;
+    color: #EFC54A;
+}
+*/
+
+/* Fuente y fondo general */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url('Images/Background.png');
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Contenedor general */
+.login-wrapper {
+    width: 900px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Caja de login con blur oscuro */
+.login-box {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Lado izquierdo (formulario) */
+.login-left {
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+/* Logo más grande */
+.logo {
+    width: 100%;
+    height: 200px;
+    background-image: url('Images/Logo-icon.png');
+    background-repeat: no-repeat;
+    background-size: 320px auto; /* Aumenta el logo */
+    background-position: center;
+    margin-bottom: 10px;   /* antes 30px, ahora más pegado */
+    flex-shrink: 0;
+}
+
+/* Formulario */
+.form {
+    width: 100%;
+    max-width: 320px;          /* antes 250px, ahora más largo */
+    margin: 0 auto;            /* centro horizontal */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Texto de introducción ajustado */
+.intro-text {
+    margin-bottom: 15px;
+    margin-top: 0;          /* elimina cualquier espacio arriba */
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Inputs */
+.box {
+    width: 100%;               /* ocupa todo el ancho del form */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-left: 5px solid #EFC54A;
+    background-color: white;
+    font-size: 14px;
+    outline: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Placeholder con Poppins */
+.box::placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: #777;
+}
+
+/* Botón */
+.submit-btn {
+    width: 100%;               /* igual al input */
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background-color: #EFC54A;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.submit-btn:hover {
+    background-color: #d4a821;
+}
+
+/* Imagen decorativa del lado derecho */
+.login-right {
+    width: 50%;
+    height: 100%;
+    background-image: url('Images/MiniPic.png');
+    background-size: cover;
+    background-position: center;
+}

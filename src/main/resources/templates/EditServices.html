@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar Servicio - ServiPerú</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/CSS/Images/logo-icon.png" />
+
+    <!-- Fuente Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Flaticon -->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <!-- Estilos personalizados -->
+    <link href="/CSS/EditService.css" rel="stylesheet">
+</head>
+<body>
+<div class="content">
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/CSS/Images/logo-extendido.png" alt="Logo Servi Perú" />
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="Servicios">
+                    <i class="fa-solid fa-concierge-bell"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Materiales">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Materiales</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empleados">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Empleados</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empresas">
+                    <i class="fa-solid fa-building"></i>
+                    <span>Empresas</span>
+                </a>
+            </li>
+        </ul>
+        <div class="logout">
+            <a class="nav-link" href="Login">
+                <i class="fi fi-rr-sign-out-alt"></i>
+                <span>Cerrar sesión</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="material-form">
+            <!-- Encabezado tipo breadcrumb + botón -->
+            <div class="form-header">
+                <div class="breadcrumb-text">
+                    <span class="path-gray">Servicios / </span><span class="path-bold">Modificar servicio</span>
+                </div>
+                <a href="Servicios" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+            </div>
+
+            <!-- Título del formulario -->
+            <h3 class="form-title">Modificar servicio</h3>
+
+            <!-- Formulario en dos columnas -->
+            <form action="/editar" method="post">
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="codigo">Código:</label>
+                            <input type="text" id="codigo" name="codigo" th:value="${codigo}" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="codigoEmpresa">Empresa:</label>
+                            <input type="text" id="codigoEmpresa" name="codigoEmpresa" th:value="${codigoEmpresa}" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipoServicio">Tipo de servicio:</label>
+                            <input type="text" id="tipoServicio" name="tipoServicio" th:value="${tipoServicio}" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fechaRealizacion">Fecha de realización:</label>
+                            <input type="text" id="fechaRealizacion" name="fechaRealizacion" th:value="${fechaRealizacion}" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lugarRealizacion">Lugar de realización:</label>
+                            <input type="text" id="lugarRealizacion" name="lugarRealizacion" th:value="${lugarRealizacion}" readonly required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Supervisor">Supervisor:</label>
+                            <div class="supervisor-select">
+                                <i class="fa-solid fa-user-tie"></i>
+                                <select id="Supervisor" name="Supervisor" required>
+                                    <option value="Manuel Pereira" data-telefono="902-548-640">Manuel Pereira</option>
+                                    <option value="Roland Mendel" data-telefono="956-548-258">Roland Mendel</option>
+                                    <option value="Isabel del Castro" data-telefono="955-245-489">Isabel del Castro</option>
+                                    <option value="Maria Larsson" data-telefono="985-958-944">Maria Larsson</option>
+                                    <option value="Diego Roel" data-telefono="998-452-165">Diego Roel</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="TelfonoSup">Teléfono del supervisor:</label>
+                            <input type="text" id="TelfonoSup" name="TelefonoSup" required readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="Material">Material:</label>
+                            <input type="text" id="Material" name="Material" required>
+                        </div>
+                    </div>
+
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="HoraIni">Hora de inicio:</label>
+                            <input type="time" id="HoraIni" name="HoraIni" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Horafina">Hora de finalización:</label>
+                            <input type="time" id="Horafina" name="Horafina" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="NumOperarios">Número de operarios:</label>
+                            <input type="text" id="NumOperarios" name="NumOperarios" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Distancia">Distancia recorrida:</label>
+                            <input type="number" id="Distancia" name="Distancia" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="Accidentes">Número de accidentes:</label>
+                            <input type="text" id="Accidentes" name="Accidentes" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Tarifa">Tarifa:</label>
+                            <input type="text" id="Tarifa" name="Tarifa" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <button type="submit" class="submit-button">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function actualizarCampos() {
+        const tipoServicio = document.getElementById('tipoServicio');
+        const distanciaInput = document.getElementById('Distancia');
+        if (tipoServicio.value.trim() === 'Transporte') {
+            distanciaInput.removeAttribute('readonly');
+        } else {
+            distanciaInput.setAttribute('readonly', true);
+        }
+    }
+
+    function actualizarTelefono() {
+        const supervisorSelect = document.getElementById('Supervisor');
+        const telefonoInput = document.getElementById('TelfonoSup');
+        const selectedOption = supervisorSelect.options[supervisorSelect.selectedIndex];
+        telefonoInput.value = selectedOption.getAttribute('data-telefono');
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        actualizarCampos();
+        actualizarTelefono();
+
+        const tipoServicio = document.getElementById('tipoServicio');
+        tipoServicio.addEventListener('change', actualizarCampos);
+
+        document.getElementById('Supervisor').addEventListener('change', actualizarTelefono);
+    });
+</script>
+</body>
+</html>

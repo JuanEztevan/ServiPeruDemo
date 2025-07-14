@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Material - ServiPerú</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/CSS/Images/logo-icon.png" />
+
+    <!-- Fuente Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Flaticon -->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <!-- Estilos personalizados -->
+    <link href="/CSS/NewMaterial.css" rel="stylesheet">
+</head>
+<body>
+<div class="content">
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="/CSS/Images/logo-extendido.png" alt="Logo Servi Perú" />
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="Servicios">
+                    <i class="fa-solid fa-concierge-bell"></i>
+                    <span>Servicios</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Materiales">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Materiales</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empleados">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Empleados</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Empresas">
+                    <i class="fa-solid fa-building"></i>
+                    <span>Empresas</span>
+                </a>
+            </li>
+        </ul>
+        <div class="logout">
+            <a class="nav-link" href="Login">
+                <i class="fi fi-rr-sign-out-alt"></i>
+                <span>Cerrar sesión</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="material-form">
+            <!-- Encabezado tipo breadcrumb + botón -->
+            <div class="form-header">
+                <div class="breadcrumb-text">
+                    <span class="path-gray">Materiales / </span><span class="path-bold">Agregar material</span>
+                </div>
+                <a href="Materiales" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+            </div>
+
+            <!-- Título del formulario -->
+            <h3 class="form-title">Agregar Material</h3>
+
+            <!-- Formulario en dos columnas -->
+            <form action="/guardar-material" method="post">
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="categoria">Categoría:</label>
+                            <select id="categoria" name="categoria" class="form-control" required>
+                                <option value="" disabled selected>Seleccione una categoría</option>
+                                <option value="42671">Seguridad</option>
+                                <option value="49348">Carga</option>
+                                <option value="74036">Transporte</option>
+                                <option value="85158">Regulación</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Nombre">Nombre:</label>
+                            <input type="text" id="Nombre" name="Nombre" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="Cantidad">Cantidad:</label>
+                            <input type="number" id="Cantidad" name="Cantidad" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="FechaComp">Fecha de compra:</label>
+                            <input type="date" id="FechaComp" name="FechaComp" class="form-control" th:value="${#dates.format(FechaComp, 'yyyy-MM-dd')}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="FechaRev">Fecha de última revisión:</label>
+                            <input type="date" id="FechaRev" name="FechaRev" class="form-control" th:value="${#dates.format(FechaRev, 'yyyy-MM-dd')}" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group text-center mt-4">
+                    <button type="submit" class="submit-button">Agregar Material</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('userIcon')?.addEventListener('click', function () {
+        var menu = document.getElementById('userMenu');
+        menu?.classList.toggle('show');
+    });
+</script>
+</body>
+</html>

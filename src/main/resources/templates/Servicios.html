@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - ServiPerú</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/CSS/Images/logo-icon.png" />
+
+    <!-- Fuente Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- Iconos Flaticon -->
+    <link href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css" rel="stylesheet" />
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+
+    <!-- Estilo personalizado -->
+    <link rel="stylesheet" href="/CSS/Servicios.css" />
+</head>
+<body>
+<div class="content">
+    <!-- Barra lateral -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <a href="inicio">
+                <img src="/CSS/Images/logo-extendido.png" alt="Logo Servi Perú" />
+            </a>
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="Servicios"><i class="fa-solid fa-concierge-bell"></i><span>Servicios</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="Materiales"><i class="fa-solid fa-box-open"></i><span>Materiales</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="Empleados"><i class="fa-solid fa-users"></i><span>Empleados</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="Empresas"><i class="fa-solid fa-building"></i><span>Empresas</span></a></li>
+        </ul>
+        <div class="logout">
+            <a class="nav-link" href="Login"><i class="fi fi-rr-sign-out-alt"></i><span>Cerrar sesión</span></a>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Encabezado con botón alineado a la derecha -->
+        <div class="row-header">
+            <h1 class="titulo-servicios">Lista de servicios</h1>
+            <form method="POST" th:action="@{/NewService}">
+                <button class="add-service-button" type="submit">Agregar servicio</button>
+            </form>
+        </div>
+
+        <!-- Tabs de navegación -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('pendientes')">Pendientes</button>
+            <button class="tab-button" onclick="showTab('completados')">Completados</button>
+        </div>
+
+        <!-- Tabla Pendientes -->
+        <div id="pendientes" class="tab-content active">
+            <table id="tablaPendientes" class="table">
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Código de empresa</th>
+                    <th>Tipo de servicio</th>
+                    <th>Fecha</th>
+                    <th>Lugar</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="empresa : ${ServiciosPor}">
+                    <td th:text="${empresa.Codigo}"></td>
+                    <td th:text="${empresa.CodigoEmpresa}"></td>
+                    <td th:text="${empresa.TipoServicio}"></td>
+                    <td th:text="${empresa.FechaDeRealizacion}"></td>
+                    <td th:text="${empresa.LugarDeRealizacion}"></td>
+                    <td>
+                        <form method="POST" th:action="@{/ModificarServicio}">
+                            <input type="hidden" name="codigo" th:value="${empresa.Codigo}" />
+                            <input type="hidden" name="codigoEmpresa" th:value="${empresa.CodigoEmpresa}" />
+                            <input type="hidden" name="tipoServicio" th:value="${empresa.TipoServicio}" />
+                            <input type="hidden" name="fechaRealizacion" th:value="${empresa.FechaDeRealizacion}" />
+                            <input type="hidden" name="lugarRealizacion" th:value="${empresa.LugarDeRealizacion}" />
+                            <button type="submit" class="edit-button-table"><i class="fa-solid fa-pen"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tabla Completados -->
+        <div id="completados" class="tab-content">
+            <table id="tablaCompletados" class="table">
+                <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Código de empresa</th>
+                    <th>Tipo de servicio</th>
+                    <th>Fecha</th>
+                    <th>Lugar</th>
+                    <th>Supervisor</th>
+                    <th>Teléf. supervisor</th>
+                    <th>Material</th>
+                    <th>Hora inicio</th>
+                    <th>Hora fin</th>
+                    <th># Operarios</th>
+                    <th>Distancia</th>
+                    <th>Accidentes</th>
+                    <th>Tarifa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="empresa : ${listado}">
+                    <td th:text="${empresa.Codigo}"></td>
+                    <td th:text="${empresa.CodEmpresa}"></td>
+                    <td th:text="${empresa.TypServicio}"></td>
+                    <td th:text="${empresa.Fecha}"></td>
+                    <td th:text="${empresa.Lugar}"></td>
+                    <td th:text="${empresa.Supervisor}"></td>
+                    <td th:text="${empresa.TelSupervisor}"></td>
+                    <td th:text="${empresa.Material}"></td>
+                    <td th:text="${empresa.HInicio}"></td>
+                    <td th:text="${empresa.HFinal}"></td>
+                    <td th:text="${empresa.NumOperarios}"></td>
+                    <td th:text="${empresa.Distancia}"></td>
+                    <td th:text="${empresa.Accidentes}"></td>
+                    <td th:text="${empresa.Tarifa}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script>
+    function showTab(tabId) {
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        event.target.classList.add('active');
+    }
+
+    $(document).ready(function () {
+        $('#tablaPendientes').DataTable({
+            language: {
+                search: '',
+                searchPlaceholder: 'Buscar servicio...',
+                lengthMenu: "Mostrar _MENU_ registros por página",
+                zeroRecords: "No se encontraron registros",
+                info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                infoEmpty: "Mostrando 0 a 0 de 0 registros",
+                infoFiltered: "(filtrado de _MAX_ registros totales)",
+                paginate: {
+                    first: "Primero",
+                    last: "Último",
+                    next: "<i class='fas fa-chevron-right'></i>",
+                    previous: "<i class='fas fa-chevron-left'></i>"
+                }
+            },
+            pageLength: 8
+        });
+
+        $('#tablaCompletados').DataTable({
+            language: {
+                search: '',
+                searchPlaceholder: 'Buscar servicio...',
+                lengthMenu: "Mostrar _MENU_ registros por página",
+                zeroRecords: "No se encontraron registros",
+                info: "Mostrando _START_ a _END_ de _TOTAL_ registros",
+                infoEmpty: "Mostrando 0 a 0 de 0 registros",
+                infoFiltered: "(filtrado de _MAX_ registros totales)",
+                paginate: {
+                    first: "Primero",
+                    last: "Último",
+                    next: "<i class='fas fa-chevron-right'></i>",
+                    previous: "<i class='fas fa-chevron-left'></i>"
+                }
+            },
+            pageLength: 8
+        });
+    });
+</script>
+</body>
+</html>

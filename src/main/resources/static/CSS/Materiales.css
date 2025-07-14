@@ -1,0 +1,223 @@
+/* ------------------ ESTILOS BASE (iguales a Inicio.css) ------------------ */
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.content {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #243A8C;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sidebar-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.sidebar-logo img {
+    max-width: 150px;
+    height: auto;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+.nav-item {
+    margin-bottom: 18px;
+}
+.nav-link {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    padding: 10px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+    min-width: 22px;
+    text-align: center;
+}
+.nav-link span {
+    flex: 1;
+    text-align: left;
+}
+.nav-link:hover {
+    background-color: #1f2f6b;
+    color: #EFC54A;
+}
+
+.logout {
+    margin-top: auto;
+    padding-top: 25px;
+}
+.logout .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+.logout .nav-link:hover {
+    background-color: #EFC54A;
+    color: #000;
+}
+
+/* ------------------ ESTILOS ADICIONALES PARA MATERIALES ------------------ */
+
+/* ------------------ CONTENIDO PRINCIPAL ------------------ */
+
+.main-content {
+    flex-grow: 1;
+    padding: 40px 60px;
+    overflow-y: auto;
+    background-color: #f5f7fb;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado y botón agregar */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.row h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #243A8C;
+    margin: 0;
+}
+
+.row form button {
+    padding: 10px 16px;
+    background-color: #243A8C;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.row form button:hover {
+    background-color: #1a2e75;
+}
+
+/* ------------------ ESTILO DE LA TABLA ------------------ */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+    background-color: #243A8C;
+    color: white;
+    font-weight: 600;
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.table td {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #eee;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f0f4ff;
+}
+
+.table tbody tr:hover {
+    background-color: #e2e8f9;
+}
+
+/* ------------------ ESTILO DE BOTÓN DENTRO DE LA TABLA ------------------ */
+
+.edit-button-table {
+    background-color: #ff9900;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-button-table:hover {
+    background-color: #cc7a00;
+}
+
+/* ------------------ DataTables UI ------------------ */
+
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.dataTables_wrapper .dataTables_length {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+}
+
+.dataTables_wrapper .dataTables_info {
+    font-size: 0.9rem;
+    padding-top: 10px;
+    text-align: left;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    font-size: 0.9rem;
+    padding-top: 10px;
+    text-align: center !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 6px 12px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #243A8C !important;
+    transition: background-color 0.3s ease;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #243A8C !important;
+    color: #fff !important;
+}
+
+/* Contenedor general de la tabla */
+.TablaMateriales {
+    width: 100%;
+    margin-bottom: 30px;
+}
