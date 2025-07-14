@@ -66,6 +66,12 @@
         </dependency>
     </dependencies>
 
+         <dependency>
+                  <groupId>com.microsoft.sqlserver</groupId>
+                    <artifactId>mssql-jdbc</artifactId>
+                    <version>12.6.1.jre17</version>
+         </dependency> 
+         
     <build>
         <plugins>
             <!-- Plugin para crear ejecutables .jar -->
