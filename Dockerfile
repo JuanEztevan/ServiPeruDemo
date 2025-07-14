@@ -4,11 +4,13 @@ FROM eclipse-temurin:17-jdk-alpine
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia el archivo .jar desde la carpeta release (ajustado según tu estructura)
+# Copia el archivo .jar desde la carpeta release (ajusta según tu estructura)
 COPY release/ServiPeru-0.0.1-SNAPSHOT.jar app.jar
 
-# Expone el puerto que Render usará (Render lo reemplaza con su variable PORT)
-EXPOSE 10000
+# Render define automáticamente la variable de entorno PORT
+# No importa qué número pongas aquí, es solo informativo
+EXPOSE 8080
 
-# Comando para ejecutar tu aplicación
+# Comando para ejecutar la aplicación, Render asignará PORT automáticamente
 CMD ["java", "-jar", "app.jar"]
+
